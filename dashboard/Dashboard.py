@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import streamlit.components.v1 as components
+import os
+
+st.write("Current working dir:", os.getcwd())
+st.write("Files in directory:", os.listdir())
 
 # menyiapkan avg_rev_score
 def create_avg_rev_score(df):
