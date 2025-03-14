@@ -45,7 +45,7 @@ def create_seller_bystate(df):
     return seller_bystate
 
 #  load berkas analisis_data.csv
-all_df = pd.read_excel(dashboard/analisis_data.xls)
+all_df = pd.read_excel("analisis_data.xls")
 
 datetime_columns = ["order_purchase_timestamp", "order_approved_at", "order_delivered_carrier_date", "order_delivered_customer_date", 
 "order_estimated_delivery_date", "shipping_limit_date", "review_creation_date", "review_answer_timestamp"]
