@@ -21,18 +21,6 @@ def create_sum_order_items_df(df):
     sum_order_items_df.columns = ['product_category_name_english', 'total_sales']
     return sum_order_items_df
 
-# menyiapkan monthly_orders
-#def create_monthly_orders_2018(df):
-    # Mengambil data penjualan tahun 2018
-#    orders_2018 = df[df["order_purchase_timestamp"].dt.year == 2018]
-    
-    # Mengubah frekuensi data untuk memperoleh informasi terkait jumlah order yang diperoleh setiap bulannya
-#    monthly_orders_2018 = orders_2018.resample(rule="ME", on="order_purchase_timestamp").order_id.nunique()
-#    monthly_orders_2018.index = monthly_orders_2018.index.strftime("%b") 
-#    monthly_orders_2018 = monthly_orders_2018.reset_index()
-#    monthly_orders_2018.rename(columns={"order_id": "order_count"}, inplace=True)
-#    return monthly_orders_2018
-
 # menyiapkan cust_bycity
 def create_cust_bycity(df):
     cust_bycity = df.groupby(by="customer_city").customer_id.nunique().sort_values(ascending=False)
@@ -54,7 +42,7 @@ def create_seller_bystate(df):
     return seller_bystate
 
 #  load berkas analisis_data.csv
-all_df = pd.read_csv("analisis_data.xls")
+all_df = pd.read_excel("analisis_data.xls")
 
 datetime_columns = ["order_purchase_timestamp", "order_approved_at", "order_delivered_carrier_date", "order_delivered_customer_date", 
 "order_estimated_delivery_date", "shipping_limit_date", "review_creation_date", "review_answer_timestamp"]
@@ -75,10 +63,6 @@ with st.sidebar:
 
     # menambahkan judul sidebar
     st.title("🔍 Filter Data")
-    
-    # membuat filter berdasarkan city dan state
-    #selected_city = st.multiselect("Filter City", all_df["customer_state"].unique())
-    #selected_state = st.multiselect("Filter State", all_df["customer_state"].unique())
 
     # mengambil start_date & end_date dari date_input
     start_date, end_date = st.date_input(
@@ -95,7 +79,6 @@ main_df = all_df[(all_df["order_purchase_timestamp"] >= str(start_date)) &
 avg_rev_score = create_avg_rev_score(main_df)
 review_counts = create_review_counts(main_df)
 sum_order_items_df = create_sum_order_items_df(main_df)
-#monthly_orders_2018 = create_monthly_orders_2018(main_df)
 cust_bycity = create_cust_bycity(main_df)
 cust_bystate = create_cust_bystate(main_df)
 seller_bycity = create_seller_bycity(main_df)
