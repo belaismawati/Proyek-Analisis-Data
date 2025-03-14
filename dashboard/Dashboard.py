@@ -50,8 +50,8 @@ def create_seller_bystate(df):
 uploaded_file = st.file_uploader("Upload file", type=["xls", "xlsx"])
 
 if uploaded_file is not None:
-    df = pd.read_excel(uploaded_file)
-    st.write(df.head())
+    all_df = pd.read_excel(uploaded_file)
+    st.write(all_df.head())
 else:
     st.warning("Silakan upload file terlebih dahulu.")
 
