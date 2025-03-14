@@ -68,7 +68,7 @@ if uploaded_file is not None:
 
     with st.sidebar:
         # menambahkan logo perusahaan
-        st.image("Logo.png")
+        st.image("dashboard/Logo.png")
 
         # menambahkan judul sidebar
         st.title("🔍 Filter Data")
