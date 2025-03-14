@@ -50,7 +50,7 @@ def create_seller_bystate(df):
 uploaded_file = st.file_uploader("Upload file", type=["xls", "xlsx"])
 
 if uploaded_file is not None:
-    all_df = pd.read_excel(uploaded_file)
+    all_df = pd.read_csv(uploaded_file)
     st.write(all_df.head())
 
     datetime_columns = ["order_purchase_timestamp", "order_approved_at", "order_delivered_carrier_date", "order_delivered_customer_date", 
