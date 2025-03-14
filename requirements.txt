@@ -1,0 +1,6 @@
+folium==0.19.5
+matplotlib==3.9.4
+numpy==2.0.2
+pandas==2.2.3
+seaborn==0.13.2
+streamlit==1.43.0
